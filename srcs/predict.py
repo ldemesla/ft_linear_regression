@@ -1,12 +1,13 @@
 import sys
 import csv
+
 def ft_prediction(b, a, feature):
-    print("\nA car with "+ str(feature) + " kilometers should cost " + str(int(b + (feature * a))) + "$\n")
+    print("\nWith input "+ str(feature) + " the predicted output is " + str(int(b + (feature * a))) + "$\n")
 
 def ft_load():
     b = 0
     a = 0
-    f = open("temp","r")
+    f = open("data/temp","r")
     content_reader = csv.reader(f, delimiter=" ")
     for row in content_reader:
         b = row[0]
@@ -15,8 +16,11 @@ def ft_load():
     return (float(b), float(a))
 
 def main():
-    b, a = ft_load()
-    ft_prediction(b, a, int(sys.argv[1]))
+    if (len(sys.argv) != 2):
+        print("error: you need to provide one argument")
+    else:
+        b, a = ft_load()
+        ft_prediction(b, a, int(sys.argv[1]))
 
 if __name__ == "__main__":
     main()

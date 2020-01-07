@@ -47,7 +47,7 @@ def ft_derived_a(feature, expected, b, a):
     return (result)
 
 def ft_save(b, a):
-    f = open("temp", "w")
+    f = open("data/temp", "w")
     f.write(str(b))
     f.write(" ")
     f.write(str(a))
